@@ -1,26 +1,31 @@
-import { createBrowserRouter } from 'react-router-dom';
-import { MainLayout } from '../layout/MainLayout/MainLayout';
 import { MainPage } from '../pages/MainPage/MainPage';
-import { PartnerPage } from '../pages/PartnerPage/PartnerPage';
 import { LoginPage } from '../pages/LoginPage/LoginPage';
+import { MainLayout } from '../layout/MainLayout/MainLayout';
+import { PartnerPage } from '../pages/PartnerPage/PartnerPage';
+import { RequireAuth } from '../components/RequireAuth/RequireAuth';
+import { createBrowserRouter } from 'react-router-dom';
 
 export const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <MainLayout/>, 
+		element: (
+			<RequireAuth>
+				<MainLayout />
+			</RequireAuth>
+		),
 		children: [
 			{
 				path: '/',
-				element: <MainPage/>
+				element: <MainPage />,
 			},
 			{
 				path: '/partner/:partnerId',
-				element: <PartnerPage/>
-			}
-		]
+				element: <PartnerPage />,
+			},
+		],
 	},
 	{
 		path: '/login',
-		element: <LoginPage/>
-	}
-])
+		element: <LoginPage />,
+	},
+]);
