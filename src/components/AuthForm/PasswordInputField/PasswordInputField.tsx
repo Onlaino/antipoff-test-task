@@ -3,8 +3,6 @@ import { useState } from 'react';
 import { IPasswordInputFieldProps } from '../AuthForm.props';
 import { InputField } from '../Input/InputField';
 
-
-
 export const PasswordInputField = ({
 	label,
 	name,

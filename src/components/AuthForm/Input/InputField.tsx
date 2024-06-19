@@ -13,7 +13,7 @@ export const InputField = ({
 			<label htmlFor={name} className={cl.label}>
 				{label}
 			</label>
-			<input type={type} className={cl.input} {...validate} />
+			<input type={type} className={cl.input}  {...validate} />
 			{error && <p className={cl.error}>Ошибка</p>}
 		</div>
 	);
