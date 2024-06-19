@@ -8,8 +8,11 @@ import { Link, useParams } from 'react-router-dom';
 import { PartnerContacts } from '../../components/PartnerContacts/PartnerContacts';
 import { useGetUserByIdQuery } from '../../redux/api/api';
 import { StandartTextForPartner } from '../../components/ui/StandartTextForPartner/StandartTextForPartner';
+import { useAppDispatch } from '../../hooks/reduxHooks';
+import { userActions } from '../../redux/slices/userSlice';
 
 export const PartnerPage = () => {
+	const dispatch = useAppDispatch();
 	const params = useParams();
 	const { partnerId } = params;
 	const {
@@ -17,6 +20,11 @@ export const PartnerPage = () => {
 		isLoading,
 		isError,
 	} = useGetUserByIdQuery(partnerId ? partnerId : '');
+
+	const logout = () => {
+		dispatch(userActions.logout())
+		localStorage.removeItem('token');
+	}
 
 	return (
 		<>
@@ -36,17 +44,16 @@ export const PartnerPage = () => {
 						Назад
 					</Button>
 				</Link>
-				<Link to={'/login'}>
+				<Link to={'/login'} onClick={logout}>
 					<Button className={cl.logout} variant='white'>
 						Выход
 					</Button>
 				</Link>
-				
 			</Header>
 			<section className={cl.partnerSection}>
 				<StandartTextForPartner />
 				<PartnerContacts
-					mail='sykfafkar@gmail.com'
+					mail={partner?.data.email ? partner?.data.email : 'no email'}
 					phone='+7 (954) 333-44-55'
 				/>
 			</section>
