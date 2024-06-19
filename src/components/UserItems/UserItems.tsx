@@ -1,15 +1,17 @@
 import cl from './UserItems.module.css';
-import { UserItem } from '../UserItem/UserItem';
-import { useGetUsersQuery } from '../../redux/api/api';
+import { Error } from '../ui/Error/Error';
 import { Loader } from '../ui/Loader/Loader';
+import { UserItem } from './UserItem/UserItem';
+import { useGetUsersQuery } from '../../redux/api/api';
 
 export const UserItems = () => {
 	const { data: partners, isLoading, isError } = useGetUsersQuery('');
 
+	if (isLoading) return <Loader />;
+	if (isError) return <Error />;
+
 	return (
 		<>
-			{isLoading && <Loader />}
-			{isError && <h2>Что-то пошло не так...</h2>}
 			<section className={cl.userItems}>
 				{partners?.data.map(partner => (
 					<UserItem

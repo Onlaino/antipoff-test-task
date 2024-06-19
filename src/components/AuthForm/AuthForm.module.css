@@ -26,10 +26,6 @@
 	line-height: 23px;
 }
 
-.wrapper {
-	display: flex;
-	flex-direction: column;
-}
 
 .label {
 	margin-bottom: 8px;

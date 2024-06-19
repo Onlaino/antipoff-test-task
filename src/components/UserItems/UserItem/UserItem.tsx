@@ -8,7 +8,6 @@ export const UserItem = ({
 	partnerFirstName,
 	partnerLastName,
 }: IUserItemProps) => {
-	console.log(partnerId)
 	return (
 		<div className={cl.userItem}>
 			<div className={cl.userInfo}>
