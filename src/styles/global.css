@@ -6,8 +6,14 @@
 	--red: #ff6161;
 	--white: #fff;
 
+	
+
 	font-family: "Roboto", sans-serif;
 	font-style: normal;
+}
+
+#root {
+	min-height: 100svh;
 }
 
 * {

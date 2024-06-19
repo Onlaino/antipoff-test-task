@@ -6,5 +6,5 @@ export interface IButtonProps
 		HTMLButtonElement
 	> {
 	children: ReactNode;
-	variant: 'black' | 'white'
+	variant?: 'black' | 'white'
 }

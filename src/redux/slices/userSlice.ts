@@ -4,13 +4,15 @@ import { createSlice } from '@reduxjs/toolkit';
 type TypeUserState = {
 	name: string,
 	isLogined: boolean,
-	jwt: string;
+	token: string;
+	email: string;
 }
 
 const initialState: TypeUserState = {
 	name: '',
+	email: '',
 	isLogined: false,
-	jwt: '',
+	token: '',
 }
 
 
@@ -20,13 +22,14 @@ const userSlice = createSlice({
 	reducers: {
 		login: (state, action) => {
 			state.name = action.payload.name;
+			state.email = action.payload.email;
 			state.isLogined = true;
-			state.jwt = 'auth'
+			state.token = action.payload.token
 		},
 		logout: (state) => {
 			state.name = '',
 			state.isLogined = false,
-			state.jwt = ''
+			state.token = ''
 		}
 	}
 });

@@ -18,8 +18,6 @@ export const PartnerPage = () => {
 		isError,
 	} = useGetUserByIdQuery(partnerId ? partnerId : '');
 
-	console.log(partner)
-
 	return (
 		<>
 			{isLoading && <Loader />}
@@ -43,6 +41,7 @@ export const PartnerPage = () => {
 						Выход
 					</Button>
 				</Link>
+				
 			</Header>
 			<section className={cl.partnerSection}>
 				<StandartTextForPartner />

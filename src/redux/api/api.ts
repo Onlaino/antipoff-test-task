@@ -16,7 +16,17 @@ export const userApi = createApi({
 		getUserById: build.query<IPartnerSingleResponse, string>({
 			query: (id: string) => `/users/${id}`,
 		}),
+		loginUser: build.mutation<
+			{ token: string },
+			{ email: string; password: string }
+		>({
+			query: data => ({
+				url: '/login',
+				method: 'POST',
+				body: data,
+			}),
+		}),
 	}),
 });
 
-export const { useGetUsersQuery, useGetUserByIdQuery } = userApi;
+export const { useGetUsersQuery, useGetUserByIdQuery, useLoginUserMutation } = userApi;
