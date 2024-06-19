@@ -1,0 +1,27 @@
+.partner {
+	padding: 39px 0 39px 188px;
+	display: flex;
+	align-items: center;
+	gap: 32px;
+}
+
+.img {
+	border-radius: 100%;
+	width: 187px;
+	height: 187px;
+}
+
+.name {
+	color: var(--white);
+	font-size: 64px;
+	font-weight: 400;
+	line-height: 75px;
+}
+
+.jobTitle {
+	color: var(--white);
+	margin-top: 16px;
+	font-size: 32px;
+	font-weight: 400;
+	line-height: 38px;
+}

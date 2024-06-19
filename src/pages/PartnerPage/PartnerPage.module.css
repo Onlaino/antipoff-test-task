@@ -1,0 +1,20 @@
+.partnerSection{
+	margin: 47px 188px 0 188px;
+	display: flex;
+	align-items: start;
+	gap: 130px;
+}
+
+.back {
+	position: absolute;
+	top: 32px;
+	left: 80px;
+}
+
+
+.logout {
+	position: absolute;
+	top: 32px;
+	right: 80px;
+}
+

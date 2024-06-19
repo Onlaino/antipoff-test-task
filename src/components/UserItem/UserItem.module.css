@@ -1,0 +1,32 @@
+.userItem {
+	border-radius: 10px;
+	border: 1px solid transparent;
+	box-shadow: 0 1px 4px 0 rgba(51, 51, 51, 0.15);
+	text-align: center;
+	transition: all 0.35s ease-in-out;
+}
+
+.userItem:hover {
+	border: 1px solid var(--gray-light);
+	box-shadow: 0 1px 24px 0 rgba(51, 51, 51, 0.15);
+}
+
+.link {
+	text-decoration: none;
+	color: var(--black);
+}
+
+.userInfo {
+	cursor: pointer;
+	padding: 36px 80px 64px 80px;
+}
+
+.userPhoto {
+	border-radius: 100%;
+}
+
+.userName {
+	margin-top: 16px;
+	font-weight: 400;
+	font-size: 20px;
+}

@@ -1,0 +1,29 @@
+.button {
+	cursor: pointer;
+	border-radius: 8px;
+	padding: 8px 16px;
+	font-size: 16px;
+	background: transparent;
+	transition: all .35s ease;
+}
+
+.button:active {
+	scale: 0.95;
+}
+
+.whiteText {
+	border: 1px solid var(--white);
+	color: var(--white);
+}
+
+.whiteText:hover {
+	color: var(--gray);
+	border: 1px solid var(--gray);
+}
+
+.blackText {
+	border: 1px solid var(--black);
+	color: var(--black);
+}
+
+
