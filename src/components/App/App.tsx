@@ -8,9 +8,9 @@ import { Loader } from '../ui/Loader/Loader';
 export const App = () => {
 	return (
 		<Provider store={store}>
-			<PersistGate loading={<Loader/>} persistor={persistor}>
+			{/* <PersistGate loading={<Loader/>} persistor={persistor}> */}
 				<RouterProvider router={router} />
-			</PersistGate>
+			{/* </PersistGate> */}
 		</Provider>
 	);
 };
