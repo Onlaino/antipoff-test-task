@@ -11,9 +11,6 @@ import { useLoginUserMutation } from '../../redux/api/api';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { validateEmail, validateName, validatePassword } from './auth.helpers';
 
-// "email": "eve.holt@reqres.in",
-// "password": "cityslicka"
-
 export const AuthForm = () => {
 	const [loginUser, { isError, isLoading }] = useLoginUserMutation();
 	const dispatch = useAppDispatch();
@@ -91,7 +88,7 @@ export const AuthForm = () => {
 									value === watch('password') || 'Пароли не совпадают',
 							}),
 						}}
-						error={errors.password}
+						error={errors.passwordConfirm}
 					/>
 					<Button className={cl.button}>Зарегистрироваться</Button>
 				</form>

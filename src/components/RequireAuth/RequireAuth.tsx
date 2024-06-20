@@ -9,5 +9,5 @@ export const RequireAuth = ({ children }: PropsWithChildren) => {
 		return <Navigate to={'/login'} replace />;
 	}
 
-	return <div>{children}</div>;
+	return <>{children}</>;
 };

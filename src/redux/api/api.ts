@@ -4,14 +4,16 @@ import {
 	IPartnerSingleResponse,
 } from '../../types/partner.types';
 
+type TypePartnerProps = { page: number; limit: number };
+
 export const userApi = createApi({
 	reducerPath: 'userApi',
 	baseQuery: fetchBaseQuery({
 		baseUrl: 'https://reqres.in/api',
 	}),
 	endpoints: build => ({
-		getUsers: build.query<IPartnerData, string>({
-			query: () => `/users`,
+		getUsers: build.query<IPartnerData, TypePartnerProps>({
+			query: ({ page = 1, limit = 10 }) => `users?page=${page}&limit=${limit}`,
 		}),
 		getUserById: build.query<IPartnerSingleResponse, string>({
 			query: (id: string) => `/users/${id}`,
@@ -29,4 +31,5 @@ export const userApi = createApi({
 	}),
 });
 
-export const { useGetUsersQuery, useGetUserByIdQuery, useLoginUserMutation } = userApi;
+export const { useGetUsersQuery, useGetUserByIdQuery, useLoginUserMutation } =
+	userApi;

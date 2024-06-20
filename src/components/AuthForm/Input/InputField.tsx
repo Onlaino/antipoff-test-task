@@ -14,7 +14,7 @@ export const InputField = ({
 				{label}
 			</label>
 			<input type={type} className={cl.input}  {...validate} />
-			{error && <p className={cl.error}>Ошибка</p>}
+			{error && <p className={cl.error}>{error.message}</p>}
 		</div>
 	);
 };

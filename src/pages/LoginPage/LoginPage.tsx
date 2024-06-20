@@ -1,9 +1,10 @@
 import { AuthForm } from '../../components/AuthForm/AuthForm';
-import cl from './LoginPage.module.css';
+import { AuthData } from '../../components/ui/AuthData/AuthData';
 
 export const LoginPage = () => {
 	return (
-		<section className={cl.login}>
+		<section>
+			<AuthData/>
 			<AuthForm />
 		</section>
 	);
