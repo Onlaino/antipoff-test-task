@@ -6,9 +6,7 @@ import { RouterProvider } from 'react-router-dom';
 export const App = () => {
 	return (
 		<Provider store={store}>
-			{/* <PersistGate loading={<Loader/>} persistor={persistor}> */}
 				<RouterProvider router={router} />
-			{/* </PersistGate> */}
 		</Provider>
 	);
 };
