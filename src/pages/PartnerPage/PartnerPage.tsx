@@ -1,15 +1,17 @@
 import cl from './PartnerPage.module.css';
 import { Error } from '../../components/ui/Error/Error';
 import { Header } from '../../components/Header/Header';
-import { Button } from '../../components/ui/Button/Button';
 import { Loader } from '../../components/ui/Loader/Loader';
+import { useParams } from 'react-router-dom';
+import { BackButton } from '../../components/BackButton/BackButton';
+import { userActions } from '../../redux/slices/userSlice';
 import { PartnerInfo } from '../../components/ui/PartnerInfo/PartnerInfo';
-import { Link, useParams } from 'react-router-dom';
+import { LogoutButton } from '../../components/LogoutButton/LogoutButton';
+import { useAppDispatch } from '../../hooks/reduxHooks';
 import { PartnerContacts } from '../../components/PartnerContacts/PartnerContacts';
 import { useGetUserByIdQuery } from '../../redux/api/api';
 import { StandartTextForPartner } from '../../components/ui/StandartTextForPartner/StandartTextForPartner';
-import { useAppDispatch } from '../../hooks/reduxHooks';
-import { userActions } from '../../redux/slices/userSlice';
+import { IPartnerSingleResponse } from '../../types/partner.types';
 
 export const PartnerPage = () => {
 	const dispatch = useAppDispatch();
@@ -22,33 +24,31 @@ export const PartnerPage = () => {
 	} = useGetUserByIdQuery(partnerId ? partnerId : '');
 
 	const logout = () => {
-		dispatch(userActions.logout())
+		dispatch(userActions.logout());
 		localStorage.removeItem('token');
-	}
+	};
 
+	const renderPartner = (partner: IPartnerSingleResponse | undefined) => {
+		if (partner) {
+			return (
+				<PartnerInfo
+					imgURL={partner?.data?.avatar}
+					jobTitle={'Партнер'}
+					firstName={partner?.data?.first_name}
+					lastName={partner?.data?.last_name}
+				/>
+			);
+		}
+	};
+
+	if (isLoading) return <Loader />;
+	if (isError) return <Error />;
 	return (
 		<>
-			{isLoading && <Loader />}
-			{isError && <Error />}
 			<Header>
-				{partner && (
-					<PartnerInfo
-						imgURL={partner?.data?.avatar}
-						jobTitle={'Партнер'}
-						firstName={partner?.data?.first_name}
-						lastName={partner?.data?.last_name}
-					/>
-				)}
-				<Link to={'/'}>
-					<Button className={cl.back} variant='white'>
-						Назад
-					</Button>
-				</Link>
-				<Link to={'/login'} onClick={logout}>
-					<Button className={cl.logout} variant='white'>
-						Выход
-					</Button>
-				</Link>
+				{renderPartner(partner)}
+				<BackButton />
+				<LogoutButton logout={logout} />
 			</Header>
 			<section className={cl.partnerSection}>
 				<StandartTextForPartner />

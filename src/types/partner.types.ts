@@ -10,7 +10,7 @@ export interface IPartnerData {
 export interface IPartnerSingleResponse {
 	data: IPartner,
 	support: IPartnerSupport
-} 
+}
 
 export interface IPartner {
 	id: string;

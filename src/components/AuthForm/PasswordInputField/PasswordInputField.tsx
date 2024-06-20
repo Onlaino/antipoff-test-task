@@ -1,7 +1,7 @@
 import cl from './PasswordInputField.module.css';
 import { useState } from 'react';
-import { IPasswordInputFieldProps } from '../AuthForm.props';
 import { InputField } from '../Input/InputField';
+import { IPasswordInputFieldProps } from '../AuthForm.props';
 
 export const PasswordInputField = ({
 	label,
@@ -10,10 +10,13 @@ export const PasswordInputField = ({
 	error,
 }: IPasswordInputFieldProps) => {
 	const [showPassword, setShowPassword] = useState(false);
-
-	const togglePasswordVisibility = () => {
+	const togglePassword = () => {
 		setShowPassword(!showPassword);
 	};
+
+	const passwordIcon = showPassword
+		? '/icons/show-password.png'
+		: '/icons/closed-eye.png';
 
 	return (
 		<div className={cl.wrapper}>
@@ -26,9 +29,9 @@ export const PasswordInputField = ({
 			/>
 			<img
 				className={cl.eyeoff}
-				src={showPassword ? '/icons/eye.svg' : '/icons/eye-off.svg'}
-				onClick={togglePasswordVisibility}
-				alt='Toggle password visibility'
+				src={passwordIcon}
+				onClick={togglePassword}
+				alt='Toggle password'
 			/>
 		</div>
 	);

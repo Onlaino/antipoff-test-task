@@ -16,3 +16,18 @@
 	line-height: 26px;
 	color: var(--white);
 }
+
+@media (max-width: 400px) {
+	.content {
+		padding: 64px 16px;
+		text-align: center;
+	}
+
+	.heading {
+		font-size: 36px;
+	}
+
+	.paragraph {
+		font-size: 16px;
+	}
+}

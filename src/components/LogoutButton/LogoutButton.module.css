@@ -1,0 +1,24 @@
+.logout {
+	position: absolute;
+	top: 32px;
+	right: 80px;
+}
+
+.logoutIcon {
+	display: none;
+}
+
+@media (max-width: 400px) {
+	.logout {
+		display: none;
+		position: absolute;
+		top: 32px;
+		right: 80px;
+	}
+	.logoutIcon {
+		display: block;
+		position: absolute;
+		top: 12px;
+		right: 16px;
+	}
+}

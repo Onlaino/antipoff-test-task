@@ -11,6 +11,14 @@ export interface IAuthForm {
 	passwordConfirm: string
 }
 
+export interface IInputProps {
+	label: string;
+	type: string;
+	name: string;
+	validationRules?: object;
+}
+
+
 export interface IInputFieldProps {
 	label: string;
 	type: string;

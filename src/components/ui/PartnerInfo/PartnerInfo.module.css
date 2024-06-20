@@ -25,3 +25,19 @@
 	font-weight: 400;
 	line-height: 38px;
 }
+
+@media (max-width: 400px) {
+	.partner {
+		padding: 64px 62px;
+		flex-direction: column;
+		flex-flow: column-reverse;
+		text-align: center;
+	}
+	.name {
+		line-height: 50px;
+		font-size: 36px;
+	}
+	.jobTitle {
+		font-size: 20px;
+	}
+}

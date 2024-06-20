@@ -1,0 +1,20 @@
+.back {
+	position: absolute;
+	top: 32px;
+	left: 80px;
+}
+.backIcon {
+	display: none;
+}
+
+@media (max-width: 400px) {
+	.back {
+		display: none;
+	}
+	.backIcon {
+		display: block;
+		position: absolute;
+		top: 12px;
+		left: 16px;
+	}
+}

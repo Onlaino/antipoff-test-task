@@ -1,20 +1,16 @@
-.partnerSection{
+.partnerSection {
 	margin: 47px 188px 0 188px;
 	display: flex;
 	align-items: start;
 	gap: 130px;
 }
 
-.back {
-	position: absolute;
-	top: 32px;
-	left: 80px;
+@media (max-width: 400px) {
+	.partnerSection {
+		margin: 32px 16px;
+
+		flex-direction: column;
+		flex-flow: column-reverse;
+		gap: 32px;
+	}
 }
-
-
-.logout {
-	position: absolute;
-	top: 32px;
-	right: 80px;
-}
-
